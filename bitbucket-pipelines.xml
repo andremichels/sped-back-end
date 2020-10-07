@@ -1,0 +1,34 @@
+#  Template Java Spring Boot App for Elastic Beanstalk
+
+#  This template allows you to deploy your application as code using AWS Elastic Beanstalk.
+#  The workflow allows validate, linting and security scans on feature branches (as well as master).
+#  The Spring Boot App will be validated and deployed after the code is merged to master.
+
+# Prerequisites: $AWS_ACCESS_KEY_ID, $AWS_SECRET_ACCESS_KEY, $AWS_DEFAULT_REGION setup in the Deployment variables.
+# For advanced cases, please, follow examples from the pipe's README https://bitbucket.org/atlassian/aws-elasticbeanstalk-deploy/src/master/README.md
+
+
+
+
+image: atlassian/default-image:2
+
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: Build and Test
+          script:
+            - ./mvnw verify --file pom.xml
+          caches:
+            - maven
+          after-script:
+            - pipe: atlassian/checkstyle-report:0.2.0
+              variables:
+                DEBUG: "true"
+      - step:
+          name: Security Scan
+          script:
+            # Run a security scan for sensitive data.
+            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+            - pipe: atlassian/git-secrets-scan:0.4.3
