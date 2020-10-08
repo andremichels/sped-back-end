@@ -10,9 +10,11 @@ import br.com.sped.scf.model.entity.docdivergenciafiscal.DivergenciaDocFiscal;
 import br.com.sped.scf.service.divergenciaDocFiscal.DivergenciaDocFiscalService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +28,9 @@ public class ConsultarDocDivergentePorContrResource {
 	@Autowired
         DivergenciaDocFiscalService divergenciaDocFiscalService;
     
-	@GetMapping
+
+        @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
 	public ResponseEntity consultar(
 			@RequestParam(value = "cnpj", required = true) String cnpj,
                         @RequestParam(value = "ano", required = true) String ano,
