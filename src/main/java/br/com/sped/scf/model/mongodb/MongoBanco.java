@@ -2,7 +2,6 @@ package br.com.sped.scf.model.mongodb;
 
 import br.com.sped.scf.model.enums.NomeCollectionMongoDb;
 import ch.qos.logback.classic.LoggerContext;
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
