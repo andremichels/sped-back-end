@@ -29,7 +29,7 @@ instalation steps
 2. executar  a classe SncFeApiApplication da pasta br.com.sped.scf
 3. o serviço estará disponivel no endereço  /api/consulta-doc-divergente-contribuinte da classe 
    br.com.sped.scf.api.resource.ConsultarDocDivergentePorContrResource
-
+exemplo http://localhost:8080/api/consulta-doc-divergente-contribuinte?cnpj=59373293746768&ano=2020&mes=07
 
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
