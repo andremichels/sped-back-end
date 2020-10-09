@@ -61,9 +61,10 @@ Describe how to install all development dependencies and how to run an automated
 * MongoDB
 * Etc
 
+#### Environment
+
 ```sh
-make install
-npm test
+   gcloud builds submit --tag gcr.io/deft-cove-284019/sped-backend
 ```
 
 ## Meta
