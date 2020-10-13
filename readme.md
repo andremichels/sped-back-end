@@ -15,21 +15,39 @@
 OS X & Linux:
 
 ```sh
-instalation steps
+instalation steps (need to write here)
 ```
 
 
 ## How to run
 
+#### Without Docker
 ```sh
    mvn spring-boot:run 
 ```
+
+#### With Docker
+
+1. First build docker
+
+```sh
+   docker run -p 8080:8080 springio/gs-spring-boot-docker
+```
+
+2. then build docker
+```sh
+   docker build -t springio/gs-spring-boot-docker .
+```
+
+3. To try if everything is ok. Open the address: http://localhost:8080/api/consulta-doc-divergente-contribuinte?cnpj=59373293746768&ano=2020&mes=07
+
+#### The steps above need to be redocumented.
 
 1. recompilar o projeto usando o pom
 2. executar  a classe SncFeApiApplication da pasta br.com.sped.scf
 3. o serviço estará disponivel no endereço  /api/consulta-doc-divergente-contribuinte da classe 
    br.com.sped.scf.api.resource.ConsultarDocDivergentePorContrResource
-
+exemplo http://localhost:8080/api/consulta-doc-divergente-contribuinte?cnpj=59373293746768&ano=2020&mes=07
 
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
@@ -38,14 +56,15 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
-####Dependencies:
+#### Dependencies:
 * Java -Qual versão
 * MongoDB
 * Etc
 
+#### Environment
+
 ```sh
-make install
-npm test
+   gcloud builds submit --tag gcr.io/deft-cove-284019/sped-backend
 ```
 
 ## Meta
