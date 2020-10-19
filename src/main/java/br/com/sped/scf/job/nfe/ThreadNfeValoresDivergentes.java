@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -61,22 +60,17 @@ public class ThreadNfeValoresDivergentes extends Thread {
 
     }
 
-    public void teste2() {
-           iniciarCollectionMongoDb();
-           verificarValorIcmsValorNotaFiscal();
-           finalizarCollectionMongoDb();
-    }
     
  
 
     private void verificarValorIcmsValorNotaFiscal() {
 
         List<String> chaveNfeList = mongoCollectionNfeUtil.consultarNfePorCnpj(cnpj, collectioNfe);
-        System.out.println("cnpj:"+cnpj+ " chaveNfeList:"+chaveNfeList.size());
+      
         Gson g = new Gson();
         for (String chave : chaveNfeList) {
 
-            String numr_cnpj_cpf_emissor = String.valueOf(new Long(cnpj));
+            String numr_cnpj_cpf_emissor = String.valueOf( Long.valueOf(cnpj));
 
             Document docNfeEfd = mongoCollectionEfdUtil.consultarNfePorCnpjChaveNfe(numr_cnpj_cpf_emissor, chave, collectioEfd);
 
