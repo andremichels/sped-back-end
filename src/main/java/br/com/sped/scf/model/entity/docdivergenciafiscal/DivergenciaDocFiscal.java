@@ -5,6 +5,7 @@
  */
 package br.com.sped.scf.model.entity.docdivergenciafiscal;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,20 +17,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "DivergenciaDocFiscal")
 public class DivergenciaDocFiscal {
 
- @Id
-  public String id;
-
+    @Id
+    public String id;
+    @ApiModelProperty(notes = "Cnpj do emissor sem zero a esquerda", required = false)
     private String cnpjEmissor;
+    @ApiModelProperty(notes = "Valor total do documento fiscal. EFD-C100-VL_DOC", required = false)
     private BigDecimal valorEfd;
+    @ApiModelProperty(notes = "Valor total informado no xml do documento", required = false)
     private BigDecimal valorDoc;
+    @ApiModelProperty(notes = "Valor do ICMS. EFD-C100-VL_ICMS", required = false)
     private BigDecimal valorEfdImcs;
-
-    private BigDecimal valorDocImcs;    
+    @ApiModelProperty(notes = "Valor do ICMS no xml do documento", required = false)
+    private BigDecimal valorDocImcs;
+    @ApiModelProperty(notes = "Valor do ICMS retido por substituição tributária EFD-C100-VL_ICMS_ST", required = false)
     private BigDecimal valorEfdImcsSt;
+    @ApiModelProperty(notes = "Valor do ICMS retido por substituição tributária no xml do documento", required = false)
     private BigDecimal valorDocImcsSt;
-    
+    @ApiModelProperty(notes = "Chave do Documento Fiscal -44 digitos", required = false)
     private String chaveDoc;
+    @ApiModelProperty(notes = " ANO 4 digitos, mes 2 digitos", required = false)
     private Integer anoMes;
+    @ApiModelProperty(notes = " Tipo Documento: NFe,CTe", required = false)
     private String tipoDoc;
 
     public BigDecimal getValorEfdImcs() {
@@ -63,7 +71,6 @@ public class DivergenciaDocFiscal {
     public void setValorDocImcsSt(BigDecimal valorDocImcsSt) {
         this.valorDocImcsSt = valorDocImcsSt;
     }
-
 
     public String getCnpjEmissor() {
         return cnpjEmissor;
@@ -112,5 +119,5 @@ public class DivergenciaDocFiscal {
     public void setTipoDoc(String tipoDoc) {
         this.tipoDoc = tipoDoc;
     }
-    
+
 }
