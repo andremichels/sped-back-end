@@ -15,7 +15,7 @@
 OS X & Linux:
 
 ```sh
-instalation steps (need to write here)
+instalation steps (need to write here). Now with Vicente.
 ```
 
 
