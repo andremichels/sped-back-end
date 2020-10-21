@@ -1,5 +1,5 @@
 steps:
-# Build the container image
+# Build the container image - SPED
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/deft-cove-284019/sped-backend-image', '.']
 # Push the container image to Container Registry
