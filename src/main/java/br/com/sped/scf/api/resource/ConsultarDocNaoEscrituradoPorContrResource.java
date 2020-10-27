@@ -32,7 +32,7 @@ public class ConsultarDocNaoEscrituradoPorContrResource {
     @Autowired
     DocNaoEscrituradoService docNaoEscrituradoService;
 
-    @ApiOperation(value = "DOCUMENTOS FISCAIS DE UM CONTRIBUINTE NÃO ESCRITURADOS(NF-E,CT-E)", notes = "Lista com todos os documentos não escriturados do mês", response = DivergenciaDocFiscal.class, responseContainer = "List")
+    @ApiOperation(value = "DOCUMENTOS FISCAIS DE UM CONTRIBUINTE NÃO ESCRITURADOS(NF-E,CT-E)", notes = "Lista com todos os documentos não escriturados do mês", response = DocNaoEscriturado.class, responseContainer = "List")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Documentos Listados com sucesso"),
 
