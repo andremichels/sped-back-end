@@ -5,8 +5,8 @@
  */
 package br.com.sped.scf.model.entity.docnaoescriturado;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,14 +19,23 @@ public class DocNaoEscriturado {
 
     @Id
     public String id;
+    @ApiModelProperty(notes = "Chave do Documento Fiscal -44 digitos", required = false)
     private String chaveDoc;
+    @ApiModelProperty(notes = "Cnpj do emissor sem zero a esquerda", required = false)
     private String cnpjEmissor;
+    @ApiModelProperty(notes = "CPF do emissor sem zero a esquerda", required = false)
     private String cpfEmissor;
+    @ApiModelProperty(notes = "Valor total informado no xml do documento", required = false)
     private BigDecimal valorDoc;
+    @ApiModelProperty(notes = "Valor do ICMS. EFD-C100-VL_ICMS", required = false)    
     private BigDecimal valorImcs;
+    @ApiModelProperty(notes = "Valor do ICMS retido por substituição tributária no xml do documento", required = false)    
     private BigDecimal valorImcsSt;
+    @ApiModelProperty(notes = " Tipo Documento: NFe,CTe", required = false)
     private String documento;
+    @ApiModelProperty(notes = " Entrada/Saída: NFe,CTe", required = false)
     private String tipoDocumentoFiscal;
+    @ApiModelProperty(notes = " ANO 4 digitos, mes 2 digitos", required = false)
     private Integer anoMes;
 
     public String getId() {
